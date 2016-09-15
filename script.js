@@ -1,16 +1,3 @@
-$(function() {
-  function inIframe () {
-		try {
-			return window.self !== window.top;
-		} catch (e) {
-			return true;
-		}
-	}
-	if (inIframe()) {
-		document.write("Load from https://fastpokemap.se<br/>Load from https://fastpokemap.se<br/>Load from https://fastpokemap.se<br/>Load from https://fastpokemap.se<br/>Load from https://fastpokemap.se<br/>Load from https://fastpokemap.se<br/>");
-	}
-});
-
 var pokemonPNG = [];
 var myPokeControl;
 var trackingEnabled = false;
