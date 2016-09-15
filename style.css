@@ -19,6 +19,9 @@ body h1, body h2 {
     margin: 0;
     padding: 0;
 }
+.displaypokemon:hover .pokemonDescription {
+    visibility: visible;
+}
 .pokeimg> img {
     padding-top: 5px;
     margin: 0;
@@ -26,7 +29,7 @@ body h1, body h2 {
     min-height: 25px;
     max-height: 30px;
 }
-.remainingtext {
+.remainingtext, .pokemonDescription{
     border-radius: 25px;
     background-color: black;
     text-align: center;
@@ -37,8 +40,11 @@ body h1, body h2 {
     color: white;
     width: 100%;
 }
+.pokemonDescription {
+    visibility: hidden;
+}
 .message {
-    margin-left: 10px; 
+    margin-left: 10px;
     margin-top: 5px;
     font-size: 14px;
     line-height: 1.1;
@@ -360,7 +366,7 @@ button.scan.active img {
     background: rgba(255,255,255,0.8);
     border-radius: 10px;
     width: 280px;
-    height: 280px;                  /* <--------- EDITED! */             
+    height: 280px;                  /* <--------- EDITED! */
     top: 50%;
     margin-top: -160px;             /* <--------- EDITED! */
     left: 50%;
@@ -372,7 +378,7 @@ button.scan.active img {
 }
 
 .filterwindow::-webkit-scrollbar { /**Hack to get filter scrolling working on android**/
-    display: none; 
+    display: none;
 }
 
 .infowindow {
@@ -438,7 +444,7 @@ button.searchbutton {
     height: 42px;
 }
 
-input[type=button].filter {                  /* <--------- NEW!! */     
+input[type=button].filter {                  /* <--------- NEW!! */
     background: #3CD1A6;
     width: 120px;
     border-radius: 25px;
@@ -452,18 +458,18 @@ input[type=button].filter {                  /* <--------- NEW!! */
     cursor: pointer;
 }
 
-input[type=button].filter:active {        /* <--------- NEW!! */  
+input[type=button].filter:active {        /* <--------- NEW!! */
     background: #66DBBA;
 }
 
-/* .inner-filter {    
+/* .inner-filter {
     height: 210px;
     overflow: auto;
     margin-bottom: 15px;
     text-align: left !important;
 } */
 
-.inner-filter {                                /* <--------- NEW!! */       
+.inner-filter {                                /* <--------- NEW!! */
     height: 232px; /* hack to get it working on chrome browser */
     overflow: auto;
     margin-bottom: 15px;
@@ -476,20 +482,20 @@ input[type=button].filter:active {        /* <--------- NEW!! */
     #map .leaflet-bar {                         /* <--------- NEW!! */
         box-shadow: none;
     }
-    
+
     /* iPhone added to homescreen fix*/
     .homescreen #map {                      /* <--------- NEW!! */
         height: 90vh;
     }
-    
+
     .homescreen button.scan {
         bottom: 0px;
     }
-    
+
      .homescreen .left, .homescreen .right {
         bottom: -2px;
     }
-    
+
     .homescreen .center {
         bottom: -6px;
     }
@@ -498,17 +504,17 @@ input[type=button].filter:active {        /* <--------- NEW!! */
 /* Firefox hack/fix */
 @supports (-moz-appearance:meterbar) {
     button img {
-        margin-left: 4px;   
+        margin-left: 4px;
     }
-    
+
     button.info img, button.filter img, button.notifications img {  /* <--------- NEW!!!! */
         margin-left: 5px;
     }
-    
+
     button.scan img {
         margin-left: 14px;
     }
-    
+
      button.close, button#applyfilter {
         padding-left: 1px;
     }
@@ -539,14 +545,14 @@ input[type=button].filter:active {        /* <--------- NEW!! */
 }
 
 /* Desktop ad */
-.adslot_1 { 
-    width: 728px; height: 90px; 
+.adslot_1 {
+    width: 728px; height: 90px;
 }
 /* Phone ad */
 @media (max-width: 767px) {
-    .adslot_1 { 
-        width: 320px; height: 50px; 
-    } 
+    .adslot_1 {
+        width: 320px; height: 50px;
+    }
 }
 .filteritem {
     margin-left: 20px;
