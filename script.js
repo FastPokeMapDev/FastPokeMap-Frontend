@@ -35,7 +35,6 @@ L.HtmlIcon = L.Icon.extend({
                 '<img src="data:image/png;base64,' + pokemonPNG[this.options.pokemonid] + '" />' +
                 '</div>' +
                 '<div class="remainingtext" data-expire="' + this.options.expire + '"></div>' +
-                '<div class="pokemonDescription"> ID:' + this.options.pokemonid + '</div>'+
                 '</div>';
         }
 /*         var displaypokemonDiv = $(div).find('.displaypokemon');
@@ -138,7 +137,7 @@ function addPokemonToMap(spawn) {
 var isScanning = false;
 
 function getPokemon(lat, lng) {
-
+	
     $.ajax({
         dataType: "json",
         url: "https://api.fastpokemap.se/?key=" + window.fingerprint + "&ts=" + window.salt + "&lat=" + lat + "&lng=" + lng,
@@ -149,15 +148,15 @@ function getPokemon(lat, lng) {
             console.log("Successful scan");
             $(".scan").prop("disabled", false);
             isScanning = false;
-
+            
             /*Scanning button animation*/
-            status = 'success';
+            status = 'success';       
             $('.scan').removeClass('active').addClass(status); // Add statuscolor to scanbutton
             setTimeout(function() {
                 $('.scan').removeClass(status);
             }, 1500); // Hide status color after 1,5 seconds
             /*End animation section*/
-
+            
             $(".nearby").html('<h3>NEARBY (Tap to see zone)</h3>');
 
             if (data.result.length >= 1) {
@@ -183,7 +182,7 @@ function getPokemon(lat, lng) {
                     }
                 }
                 $(".nearby").html(bufferRadar);
-            }
+            }        
             if (foundNearbyPokemon) {
                 $(".nearby").show();
             } else {
@@ -191,11 +190,11 @@ function getPokemon(lat, lng) {
             }
 
         },
-        timeout: 50000
+        timeout: 50000        
     }).fail( function( xhr, status ) {
         console.log("Scan failed");
         console.log(xhr);
-        console.log(status);
+        console.log(status);        
         $(".scan").prop("disabled", false);
         curstatus = 'failed';
         isScanning = false;
@@ -225,7 +224,7 @@ function DrawS2(S2ID) {
 	arrayLatLng.push(new L.LatLng(corner[3].lat, corner[3].lng));
     if (nearbyForm != undefined) {
 		map.removeLayer(nearbyForm);
-	}
+	}	
     nearbyForm = new L.polygon(arrayLatLng);
 	map.addLayer(nearbyForm);
 }
@@ -256,7 +255,7 @@ function onLocationFound(event) {
     marker.setLatLng(cp);
     map.setView(cp);
     throttledLoadCache(cp);
-
+    
     if(!isScanning) {
         if(!$('.scan').hasClass('active')) {
             $('.scan').removeClass('success').removeClass('failed').addClass('active'); // Start spinning
@@ -264,7 +263,7 @@ function onLocationFound(event) {
         $(".scan").prop("disabled", true);
 		circle.setLatLng(cp);
 		//circleNearby.setLatLng(cp);
-        isScanning = true;
+        isScanning = true;                    
         getPokemon(cp.lat, cp.lng);
     }
 }
@@ -280,15 +279,15 @@ function initmap() {
     var osm = new L.TileLayer(osmUrl, {
         minZoom: 2,
         maxZoom: 18,
-		noWrap: true,
+		noWrap: true,		
     });
 
     map.addLayer(marker);
     map.addLayer(osm);
 	//map.addLayer(circleNearby);
     map.addLayer(circle);
-
-
+	
+    
     var credits = L.control.attribution().addTo(map);
     //credits.addAttribution('&copy; <a href=\"http://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors');
     credits.addAttribution('Powered by Esri, HERE, DeLorme, NGA, USGS');
@@ -304,10 +303,10 @@ function initmap() {
             marker.setLatLng(cp);
             if(!isScanning) {
                 $(".scan").prop("disabled", true);
-                isScanning = true;
+                isScanning = true;    
                 if(!$('.scan').hasClass('active')) {
                     $('.scan').removeClass('success').removeClass('failed').addClass('active'); // Start spinning
-                }
+                }                
                 circle.setLatLng(cp);
 				//circleNearby.setLatLng(cp);
                 getPokemon(cp.lat, cp.lng);
@@ -384,7 +383,7 @@ if (window.navigator.userAgent.indexOf('iPhone') != -1 && window.navigator.stand
 }
 /* End iPhone Homescreen fix */
 
-$(function() {
+$(function() {    
     $('.nearby').hide(); //Hide nearby box
     $('#menu').slicknav({ label: '' }); //Start Slicknav
     if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
@@ -392,10 +391,10 @@ $(function() {
     } else if (/(android)/i.test(navigator.userAgent)) {
         $('.slicknav_menu').prepend('<div class="message">Get <strong><a href="https://goo.gl/HhBwtt">GoChat for Android</a></strong> and chat <br />with nearby trainers while scanning!</div>');
     }
-
-
-
-    /* Populate filter list */
+    
+    
+    
+    /* Populate filter list */    
     var reversedPokemonNames = _.invert(pokemonNames);
     var orderedPokemonNames = {}
     Object.keys(reversedPokemonNames).sort().forEach(function(key) {
@@ -408,7 +407,7 @@ $(function() {
         filterhtml += '<div class="filteritem"><input type=checkbox name="' + id + '" id="' + filtertag + '" /><label for="' + filtertag + '">' + name + '</label></div>';
     }
     $(".inner-filter").html(filterhtml);
-
+    
     /* Load filterdict */
     var filtercookie = Cookies.get('filter');
     if (filtercookie) {
@@ -418,7 +417,7 @@ $(function() {
             filterdict[filterlist[i]] = true;
         }
     }
-
+    
     $.get("https://gist.githubusercontent.com/anonymous/50c284e815df6c81aa53497a305a29f2/raw", function(data) { //Init map
         var pokemons = data.split("\n");
         var i;
@@ -440,17 +439,17 @@ $(function() {
         });
         circle = new L.circle(startLatLng, 200);
 		//circleNearby = new L.circle(startLatLng, 200,  {color: 'red', opacity: '0.1', fillColor: '#f03', fillOpacity: 0.1});
-
+		
 		/*
         marker.on("drag", function(e) {
             circle.setLatLng(e.latlng);
 			//circleNearby
         });
 		*/
-
+		
         initmap();
-        map.setView(startLatLng, 16);
-
+        map.setView(startLatLng, 16);        
+        
         L.DomEvent.disableClickPropagation($('.scan')[0]);
         L.DomEvent.disableClickPropagation($('.search')[0]);
         L.DomEvent.disableClickPropagation($('.location')[0]);
@@ -459,35 +458,35 @@ $(function() {
 		L.DomEvent.disableClickPropagation($('.nearby')[0]);
 
         $('.searchbutton').on('click', function(e) {
-
+           
             if ($("#location").val() != "") {
                 findCoordinate($("#location").val());
                 $("#locationBtn").prop("disabled", true);
                 $("#locationBtn").html('...');
             }
         });
-
+        
         throttledLoadCache(startLatLng);
         //_.delay(throttledLoadCache, 500, startLatLng); //delay a little to let map initiate
 
     });
-
+    
     setInterval(updateTime, 1000);
     setInterval(autoTrack,  5000);
-
+    
     /* Start Scan */
     $('.scan').on('click', function() {
         if(!$('.scan').hasClass('active')) {
             $('.scan').removeClass('success').removeClass('failed').addClass('active'); // Start spinning
-
+            
             var cp = marker.getLatLng();
-
+            
             if(!isScanning) {
                 if(!$('.scan').hasClass('active')) {
                     $('.scan').removeClass('success').removeClass('failed').addClass('active'); // Start spinning
                 }
                 $(".scan").prop("disabled", true);
-                isScanning = true;
+                isScanning = true; 
 				circle.setLatLng(cp);
 				//circleNearby.setLatLng(cp);
                 getPokemon(cp.lat, cp.lng);
@@ -495,23 +494,23 @@ $(function() {
         }
     });
     /* End Scan */
-
-
+    
+	
 	/* Show Nearby Zone */
 	$(document.body).on('click', '.pokemon' ,function()
 	{
 		//console.log("lol");
         var zone = $(this).data("zone");
 		//console.log(zone);
-		if (zone != undefined) {
-			DrawS2(zone);
+		if (zone != undefined) {			
+			DrawS2(zone);			
 		}
     });
-
+	
 	/* End Show Nearby Zone */
-
+	
     /* Start location */
-    $('.location').on('click', function() {
+    $('.location').on('click', function() {        
         if (!trackingEnabled) {
             if(!$('.location').hasClass('active')) { // If locationbutton has been activated
                 $('.location').addClass('active');
@@ -529,24 +528,24 @@ $(function() {
         }
     });
     /* End location */
-
+    
     $('.infowindow').addClass('show');
     $('.nearby, .left, .center, .right, .leaflet-control-zoom').addClass('hidden'); /* <--- EDITED!! */
-
+    
     /* Start Notifications */                       /** NEWW!!!!!! NEW!!!! NEW!!!! **/
     $('.notifications').on('click', function() {
         if(!$('.notifications').hasClass('active')) { // If locationbutton has been activated
             $('.notifications').addClass('active');
             setTimeout(function() {
                  alert('Notification!'); // Lolz thats a long time ago I kept a alertbox in code xD
-            }, 500);
+            }, 500); 
         }
         else {
             $('.notifications').removeClass('active'); // locationbutton has been deactived
-        }
+        } 
     });
     /* End location */
-
+    
     /* Start Windows */
     $('.info').on('click', function() { // Open infowindow
         $('.infowindow').addClass('show');
@@ -555,14 +554,14 @@ $(function() {
             $('.nearby').addClass('hidden');
         }
     });
-
-    $('.search').on('click', function() { // Open searchwindow
+    
+    $('.search').on('click', function() { // Open searchwindow        
         $('.searchwindow').addClass('show');
         $('.nearby, .left, .center, .right, .leaflet-control-zoom').addClass('hidden');/* <--- EDITED!! */
         $("#location").focus();
     });
-
-    /* Start Filter */
+    
+    /* Start Filter */    
     $('#openfilter').on('click', function() { // Open filterwindow          /** NEWW!!!!!! NEW!!!! NEW!!!! **/
         $('.filteritem input').each(function() {
             if(this.name in filterdict) {
@@ -572,7 +571,7 @@ $(function() {
         $('.filterwindow').addClass('show');
         $('.nearby, .left, .center, .right, .leaflet-control-zoom').addClass('hidden');/* <--- EDITED!! */
     });
-
+    
     $('#select-all').on('click', function() {
         $('.filteritem input').each(function() {
             this.checked = true;
@@ -584,7 +583,7 @@ $(function() {
             this.checked = false;
         });
     });
-
+    
     $('#applyfilter').on('click', function() {
         var filterlist = []; //get filter from list
         $('.filteritem input').each(function() {
@@ -597,7 +596,7 @@ $(function() {
         for (var i in filterlist){
             filterdict[filterlist[i]] = true;
         }
-
+        
         //hide new pokemon and show unhidden ones
         $('.displaypokemon').each(function() {
             var curpokeid = $(this).data("pokeid");
@@ -608,27 +607,30 @@ $(function() {
                 //display
                 $(this).removeClass('hidden');
             }
-        });
+        });        
         $('.window').removeClass('show');
         $('.nearby, .left, .center, .right, .leaflet-control-zoom').removeClass('hidden');/* <--- EDITED!! */
-    });
+    });    
     /* End Filter */
-
-
+    
+    
     $('.close').on('click', function() { // Close all windows
         $('.window').removeClass('show');
         $('.nearby, .left, .center, .right, .leaflet-control-zoom').removeClass('hidden');/* <--- EDITED!! */
     });
     /* End Windows */
-
+    
     /* Start Search */
     $('form.search').on('submit', function(e) { // Searchform has been submitted.
         e.preventDefault();
-    });
+    }); 
     /* End Search */
-
+    
     $("body").css({
         height: $(window).height()
     });
 
 });
+
+
+
