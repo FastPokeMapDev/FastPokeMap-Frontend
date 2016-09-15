@@ -1,0 +1,572 @@
+*:focus {
+    outline: none;
+}
+body {
+    font-family: "Lato",Helvetica,Arial,sans-serif;
+    overflow: hidden;
+    margin: 0;
+    background: #EDF9EA;
+}
+body h1, body h2 {
+    display: none;
+}
+.displaypokemon {
+    position: absolute;
+    left: -20px;
+    top: -20px;
+    width: 40px;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+.pokeimg> img {
+    padding-top: 5px;
+    margin: 0;
+    max-width: 40px;
+    min-height: 25px;
+    max-height: 30px;
+}
+.remainingtext {
+    border-radius: 25px;
+    background-color: black;
+    text-align: center;
+    background-color: rgba(100, 100, 100, 0.7);
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
+    color: white;
+    width: 100%;
+}
+.message {
+    margin-left: 10px; 
+    margin-top: 5px;
+    font-size: 14px;
+    line-height: 1.1;
+    float: left;
+    text-align: left;
+}
+.message a {
+    text-decoration: none;
+}
+/*Display for desktop */
+.fpm-top-title {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    float: left;
+    margin-left: 40px;
+    font-weight: 300;
+    font-size: 35px;
+    color: #555555;
+}
+.fpm-top-nav {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    float: right;
+    margin-right: 40px;
+    font-size: 20px;
+    color: #b0b0b0;
+    text-decoration: none;
+}
+.top-nav-item {
+    margin-left: 20px;
+}
+.top-nav-item a, .top-nav-item a:hover, .top-nav-item a:active, .top-nav-item a:visited {
+    text-decoration:none;
+}
+.top-nav-item a {
+    color: #555555 !important;
+}
+.desktop-header {
+    height: 90px;
+    overflow: hidden;
+}
+.mobile-header, .slicknav_menu {
+    display: none;
+}
+.adroom {
+    height: 90px;
+    overflow: hidden;
+}
+#map {
+    height: calc(100vh - 180px);
+    width: 100vw;
+}
+/*Display for mobile */
+@media (max-width: 767px) {
+    #map {
+        height: calc(100vh - 100px);
+        width: 100vw;
+    }
+    .desktop-header, .mobile-header {
+        display: none;
+    }
+    .slicknav_menu {
+        display:block;
+    }
+    .adroom {
+        height: 50px;
+        overflow: hidden;
+    }
+}
+/*Iphone Hack*/
+.iphone-map {
+    height: calc(100vh - 170px) !important;
+}
+.iphone-adroom {
+    height: 120px !important;
+}
+/* START NEW! */
+#map .leaflet-bar {                         /* <--------- NEW!! */
+    border-radius: 10px;
+    box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.6);
+}
+
+#map .leaflet-control-zoom a {              /* <--------- NEW!! */
+    border: 2px solid #257d88;
+    color: #257d88;
+}
+
+#map .leaflet-bar a:first-child {           /* <--------- NEW!! */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+#map .leaflet-bar a:last-child {            /* <--------- NEW!! */
+    border-top-width: 1px !important;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+/* END NEW */
+
+noscript {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -80px;
+    margin-left: -160px;
+    width: 300px;
+    height: 140px;
+    display: block;
+    background: white;
+    font-size: 28px;
+    font-weight: 300;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+noscript a {
+    font-size: 16px;
+    color: black;
+}
+
+.nearby {
+    background: rgba(255, 255, 255, 0.7) none repeat scroll 0 0;
+    border-radius: 10px 0 0 10px;
+    box-shadow: 1px 2px 6px 0 black;
+    margin-left: 100px;             /* <--------- EDITED! */
+    padding: 17px 10px 2px;
+    position: absolute;
+    right: 0;
+    top: 15px;
+    width: auto;
+    z-index: 1000;
+}
+
+.nearby .pokemon {
+    float: left;
+    width: 26px;                    /* <--------- EDITED! */
+    height: 36px;                   /* <--------- EDITED! */
+    position: relative;
+    padding: 0px 3px 0 4px;
+    display: table;
+}
+
+.nearby img {
+    width: 26px;                    /* <--------- EDITED! */
+    min-height: 16px;
+    display: table-cell;
+    vertical-align: bottom;
+}
+
+.nearby span {
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    display: inline-block;
+    width: 28px;                    /* <--------- EDITED! */
+    text-align: center;
+    background: #217b86;
+    border-radius: 100px;
+    color: white;
+    font-size: 9px;
+    padding: 1px;
+}
+
+.nearby h3 {
+    color: #217b86;
+    font-size: 11px;
+    font-weight: 400;
+    position: absolute;
+    right: 3px;
+    top: -10px;
+}
+
+
+
+.left {
+    position: absolute;
+    bottom: 16px;
+    left: 20px;
+    /* height: 125px; */
+    width: 60px;
+    z-index: 1001;
+}
+
+.center {
+    position: absolute;
+    width: 70px;
+    height: 80px;
+    bottom: 20px;
+    left: 50%;
+    margin-left: -35px;
+    z-index: 1001;
+}
+
+.right {
+    position: absolute;
+    bottom: 16px;
+    right: 0;
+    /* height: 190px; */
+    width: 60px;
+    z-index: 1001;
+}
+
+button:not(.searchbutton) {
+    background: #eff7ee none repeat scroll 0 0;
+    border: 2px solid #217B86;
+    border-radius: 100px;
+    color: #4bdec5;
+    font-size: 22px;
+    height: 40px;
+    position: relative;
+    width: 40px;
+    top: -9px;
+    left: 0;
+    margin-bottom: 25px;
+    margin-left: 0px;
+    padding: 0;
+    text-align: left;
+}
+
+button:not(.searchbutton):before {
+    content: " ";
+    display: block;
+    background: #eff7ee;
+    border-radius: 100px;
+    box-shadow: 0px 0px 3px 2px black;
+    height: 50px;
+    left: -7px;
+    position: absolute;
+    top: -7px;
+    width: 50px;
+    z-index: -1;
+    opacity: 0.6;
+}
+
+button:active, button:active:before {
+    background: #BAEAAE;
+}
+
+button img {
+    display: inline;
+    margin-left: 7px;
+    margin-top: 5px;
+    width: 20px;
+    height: 20px;
+}
+
+button.info img {
+    margin-left: 8px;
+}
+/* Start NEW! */
+button.filter img {              /* <----------------- NEW! */
+    margin-left: 8px;
+    margin-top: 7px;
+}
+
+button.notifications img {       /* <----------------- NEW! */
+    margin-left: 8px;
+}
+
+button.close, button#applyfilter{
+    margin-top: 15px;
+    text-align: center;
+    font-size: 17px;
+    color: #217B86;
+    width: 30px;
+    height: 30px;
+    margin-bottom: 0px;
+}
+
+button.close:before, button#applyfilter:before {
+    width: 40px;
+    height: 40px;
+}
+
+button.scan {
+    height: 70px;
+    width: 70px;
+}
+
+button.scan:before {
+    height: 80px;
+    width: 80px;
+}
+
+button.scan img {
+    width: 32px;
+    height: 32px;
+    margin-left: 17px;
+}
+
+button.scan.success, button.scan.success:before, button:not(.scan).active, button:not(.scan).active:before {
+    background: #61FF61;
+}
+
+button.scan.failed, button.scan.failed:before {
+    background: #FF9999;
+}
+
+button.scan.active img {
+    -webkit-animation:spin 1s linear infinite;
+    -moz-animation:spin 1s linear infinite;
+    animation:spin 1s linear infinite;
+}
+
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+.window {
+    display: none;
+    position: absolute;
+    background: rgba(255,255,255,0.8);
+    border-radius: 10px;
+    width: 280px;
+    height: 280px;                  /* <--------- EDITED! */             
+    top: 50%;
+    margin-top: -160px;             /* <--------- EDITED! */
+    left: 50%;
+    margin-left: -150px;
+    z-index: 2000;
+    padding: 10px;
+    text-align: center;
+    overflow: auto;
+}
+
+.filterwindow::-webkit-scrollbar { /**Hack to get filter scrolling working on android**/
+    display: none; 
+}
+
+.infowindow {
+    height: 320px;
+}
+
+.filterwindow {
+    height: 400px;
+    top: 50% !important;
+    margin-top: -250px !important;
+}
+
+.show {
+    display: block !important;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.window h3 {
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: 300;
+    margin-top: 15px;               /* <--------- EDITED! */
+}
+
+.window p {
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.window a {
+    color: #217B86;
+}
+
+.searchwindow {
+    height: 200px;
+    margin-top: -100px;
+}
+
+.searchwindow form {
+    position: relative;
+}
+
+input[name=location] {
+    border: 2px solid #217b86;
+    border-radius: 10px;
+    color: #217b86;
+    font-family: Lato;
+    font-size: 15px;
+    height: 30px;
+    margin-bottom: 15px;
+    padding: 5px;
+    width: 250px;
+}
+
+button.searchbutton {
+    background: transparent;
+    border: 0px;
+    position: absolute;
+    right: 10px;
+    height: 42px;
+}
+
+input[type=button].filter {                  /* <--------- NEW!! */     
+    background: #3CD1A6;
+    width: 120px;
+    border-radius: 25px;
+    height: 35px;
+    color: white;
+    border: 0;
+    text-transform: uppercase;
+    font-size: 15px;
+    padding: 5px;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+
+input[type=button].filter:active {        /* <--------- NEW!! */  
+    background: #66DBBA;
+}
+
+/* .inner-filter {    
+    height: 210px;
+    overflow: auto;
+    margin-bottom: 15px;
+    text-align: left !important;
+} */
+
+.inner-filter {                                /* <--------- NEW!! */       
+    height: 232px; /* hack to get it working on chrome browser */
+    overflow: auto;
+    margin-bottom: 15px;
+    text-align: left! important;
+}
+
+/* iPhone hack/fix */
+@media only screen and (max-width: 767px) and (-webkit-min-device-pixel-ratio: 2) {
+    /* <--------- NEW!! */
+    #map .leaflet-bar {                         /* <--------- NEW!! */
+        box-shadow: none;
+    }
+    
+    /* iPhone added to homescreen fix*/
+    .homescreen #map {                      /* <--------- NEW!! */
+        height: 90vh;
+    }
+    
+    .homescreen button.scan {
+        bottom: 0px;
+    }
+    
+     .homescreen .left, .homescreen .right {
+        bottom: -2px;
+    }
+    
+    .homescreen .center {
+        bottom: -6px;
+    }
+}
+
+/* Firefox hack/fix */
+@supports (-moz-appearance:meterbar) {
+    button img {
+        margin-left: 4px;   
+    }
+    
+    button.info img, button.filter img, button.notifications img {  /* <--------- NEW!!!! */
+        margin-left: 5px;
+    }
+    
+    button.scan img {
+        margin-left: 14px;
+    }
+    
+     button.close, button#applyfilter {
+        padding-left: 1px;
+    }
+}
+
+
+/* AdsRoom */
+.closead {
+    background: white;
+    border-radius: 100px;
+    position: absolute;
+    left: 10px;
+    margin-top: 5px;
+    padding: 3px 7px;
+    z-index: 1000;
+    font-size: 11px;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid #222;
+}
+
+.phonead, .tabletad, .pcad {
+    text-align: center;
+}
+
+.pcad {
+    display: block;
+}
+
+/* Desktop ad */
+.adslot_1 { 
+    width: 728px; height: 90px; 
+}
+/* Phone ad */
+@media (max-width: 767px) {
+    .adslot_1 { 
+        width: 320px; height: 50px; 
+    } 
+}
+.filteritem {
+    margin-left: 20px;
+}
+input[type='checkbox'] {
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    width:30px;
+    height:30px;
+    background:green;
+    border-radius:5px;
+    border:2px solid #555;
+}
+input[type='checkbox']:checked {
+    background: #ff0000;
+}
+.filteritem input {
+    display: inline-block;
+    vertical-align: middle;
+}
+.filteritem label {
+    vertical-align: middle;
+}

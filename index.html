@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>FastPokeMap - Gotta Track'em All</title>
+    <meta name="description" content="FastPokeMap is a Pokemon GO map and scanner. It's a much faster PokeVision alternative." />
+    <meta name="keywords" content="fastpokemap,map,pokemon,tracker,pokevision,alternative,scanner,poketrack,pokemon go,pokémon go,pokémon,go,timers,free,niantic,alternative,alternative pokevision">
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,minimal-ui" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes">
+    <link href='https://fonts.googleapis.com/css?family=Lato:300,400&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href="https://npmcdn.com/leaflet@1.0.0-rc.1/dist/leaflet.css" rel="stylesheet" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore.js"></script>
+    <script src="mobile.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script src="https://npmcdn.com/leaflet@1.0.0-rc.1/dist/leaflet.js"></script>
+    <script src="js.cookie.js"></script>
+    <script src="s2.js"></script>
+    <script src="script.js"></script>
+    <script src="slicknav/jquery.slicknav.min.js"></script>
+    <script> window.salt=0; window.fingerprint="allow-all"; </script>    
+    <link rel="stylesheet" href="slicknav/slicknav.css" />
+    <link href="style.css" rel="stylesheet" />
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="img/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="img/manifest.json">
+    <link rel="mask-icon" href="img/safari-pinned-tab.svg" color="#ff2e48">
+    <meta name="apple-mobile-web-app-title" content="FastPokeMap">
+    <meta name="application-name" content="FastPokeMap">
+    <meta name="theme-color" content="#edf9ea">
+    <meta name="referrer" content="never">
+	
+  </head>
+  <body ontouchstart="">
+    <h1>FastPokeMap</h1>
+    <h2>Gotta Track'em All</h2>
+    <div class="window infowindow">
+        <p><strong>NEW Update:</strong> We've increased our scan range by over 2x! This means you can scan much more! <br /><br />Follow our <a href="https://twitter.com/FastPokeMapCom" target="_blank">Twitter</a> for updates!</p>
+        <p>FastPokeMap is a live GO map, helping you find monsters around you.</p>
+        <hr />
+        <!--<p>Feedback is  welcome on <a href="https://twitter.com/FastPokeMapCom" target="_blank">Twitter</a></p>-->
+        <p>Thank you and happy hunting!</p>
+        <button class="close">
+         X
+        </button>
+    </div>
+    <div class="desktop-header">
+        <div class="fpm-top-title">FastPokeMap</div>
+        <div class="fpm-top-nav"><span class="top-nav-item"><a href="faq.html">FAQ</a></span><span class="top-nav-item"><a href="privacy-policy.html">Privacy Policy</a><span></div>
+    </div>
+    <div class="mobile-header">
+        <ul id="menu">
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        </ul>
+    </div>
+    <div id="map">    
+        <div class="nearby" title="Pokemon nearby your scan area">
+            <h3>NEARBY</h3>
+        </div>
+        
+        <div class="left">
+           <!-- <button class="notifications">
+                <img src="img/notifications.png" title="Enable notifications">
+          </button> -->
+          <button class="info">
+            <img src="img/favicon-32x32.png" title="FastPokeMap - Gotta Track'em All">
+          </button>
+        </div>
+        
+        <div class="center">
+          <button class="scan">
+            <img src="img/scan.png" title="Launch scan!">
+          </button>
+        </div>
+        
+        <div class="right">
+             <button class="filter" id="openfilter">
+                <img src="img/filter.png" title="Filter Pokemon">
+            </button>
+            <button class="search">
+                <img src="img/search.png" title="Find location">
+            </button>
+            <button class="location">
+                <img src="img/location.png" title="Enable location tracking">
+            </button>
+        </div>
+    </div>
+    
+    <div class="window searchwindow">
+        <h3>Search</h3>
+        <p>Find your location</p>
+        <form class="search" action="" method="post">
+          <input type="text" name="location" id="location" value="" placeholder="City, Country" />
+          <button type="submit" class="searchbutton">
+            <img src="img/search.png" title="Find location">
+          </button>
+        </form>
+        <button class="close">
+         X
+        </button>
+    </div>
+    
+     <div class="window filterwindow">
+        <h3>Filter (Remove)</h3>
+        <input type="button" class="filter" id="select-all" value="Hide All" />
+        <input type="button" class="filter" id="deselect-all" value="Show All" />
+        <div class="inner-filter"></div>
+        <button id="applyfilter">
+         ✓
+        </button>
+    </div>
+    
+    <div class="adroom">
+      <div class="pcad">
+      </div>
+    </div>
+    
+    <noscript>
+      Javascript is required to view this website!<br />
+      <a href="http://www.enable-javascript.com/" target="_blank">Here are the instructions how to enable JavaScript in your web browser.</a>
+    </noscript>
+ 
+  </body>
+</html>
