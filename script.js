@@ -642,17 +642,7 @@ $(function() {
     $("body").css({
         height: $(window).height()
     });
-    
-    /* if(mobileAndTabletcheck()) {
-        var chance = Math.random();
-        if(chance < 0.5) {
-            $('.pcad').html('<div id="crt-486056"></div><script type="text/javascript">Criteo.DisplayAd({    "zoneid": 486056,    "containerid": "crt-486056"});</script>');
-        } else {
-            $('.pcad').html('<center><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle adslot_1" style="display:block" data-ad-client="ca-pub-8269628550311055" data-ad-slot="1844494449" data-ad-format="auto"></ins> <script>(adsbygoogle = window.adsbygoogle || []).push({});</script></center>');
-        }
-    } else {
-        $('.pcad').html('<center><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle adslot_1" style="display:block" data-ad-client="ca-pub-8269628550311055" data-ad-slot="1844494449" data-ad-format="auto"></ins> <script>(adsbygoogle = window.adsbygoogle || []).push({});</script></center>');
-    } */
+
 });
 
 
