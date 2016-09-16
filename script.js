@@ -30,7 +30,7 @@ L.HtmlIcon = L.Icon.extend({
                 '</div>';
         } else {
             div.innerHTML =
-                '<div class="displaypokemon" data-pokeid="' + this.options.pokemonid  + '">' +
+                '<div onclick="handlePokemonClicked" class="displaypokemon" data-pokeid="' + this.options.pokemonid  + '">' +
                 '<div class="pokeimg">' +
                 '<img src="data:image/png;base64,' + pokemonPNG[this.options.pokemonid] + '" />' +
                 '</div>' +
@@ -78,6 +78,22 @@ function createPokeIcon(pokemonid, timestamp, filtered) {
         expire: timestamp,
         hide: filtered
     });
+}
+
+function handlePokemonClicked(pokemonDiv)
+{
+	var pokemonDivElement = $(pokemonDiv);
+	var pokemonDescription = pokemonDivElement.find('.pokemonDescription');
+	
+	if(pokemonDescription.css('visibility') == 'hidden')
+	{
+		pokemonDescription.css('visibility', 'visible');
+	}
+	else
+	{
+		pokemonDescription.css('visibility', 'hidden');
+	}
+	window.event.stopPropagation();
 }
 
 
