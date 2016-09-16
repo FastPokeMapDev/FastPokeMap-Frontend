@@ -35,6 +35,7 @@ L.HtmlIcon = L.Icon.extend({
                 '<img src="data:image/png;base64,' + pokemonPNG[this.options.pokemonid] + '" />' +
                 '</div>' +
                 '<div class="remainingtext" data-expire="' + this.options.expire + '"></div>' +
+                '<div class="pokemonDescription"> ID:' + this.options.pokemonid + '</div>'+
                 '</div>';
         }
 /*         var displaypokemonDiv = $(div).find('.displaypokemon');
