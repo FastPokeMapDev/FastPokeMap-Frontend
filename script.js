@@ -30,7 +30,7 @@ L.HtmlIcon = L.Icon.extend({
                 '</div>';
         } else {
             div.innerHTML =
-                '<div onclick="handlePokemonClicked" class="displaypokemon" data-pokeid="' + this.options.pokemonid  + '">' +
+                '<div onclick="handlePokemonClicked(this);" class="displaypokemon" data-pokeid="' + this.options.pokemonid  + '">' +
                 '<div class="pokeimg">' +
                 '<img src="data:image/png;base64,' + pokemonPNG[this.options.pokemonid] + '" />' +
                 '</div>' +
