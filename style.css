@@ -26,7 +26,7 @@ body h1, body h2 {
     min-height: 25px;
     max-height: 30px;
 }
-.remainingtext {
+.remainingtext, .pokemonDescription{
     border-radius: 25px;
     background-color: black;
     text-align: center;
@@ -36,6 +36,9 @@ body h1, body h2 {
     padding: 0;
     color: white;
     width: 100%;
+}
+.pokemonDescription {
+    visibility: hidden;
 }
 .message {
     margin-left: 10px; 
