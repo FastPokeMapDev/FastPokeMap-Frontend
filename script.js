@@ -188,7 +188,7 @@ function getPokemon(lat, lng) {
             } else {
                 $(".nearby").hide();
             }
-
+	    autoTrack();
         },
         timeout: 50000        
     }).fail( function( xhr, status ) {
@@ -207,6 +207,7 @@ function getPokemon(lat, lng) {
                 currfailure = null;
             }
         }, 1500); // Hide status color after 1,5 seconds
+        autoTrack();
     });
 }
 
@@ -472,8 +473,7 @@ $(function() {
     });
     
     setInterval(updateTime, 1000);
-    setInterval(autoTrack,  5000);
-    
+
     /* Start Scan */
     $('.scan').on('click', function() {
         if(!$('.scan').hasClass('active')) {
