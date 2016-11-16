@@ -650,9 +650,13 @@ $(function() {
         height: $(window).height()
     });    
 
+    let $animated = $('#chat,.right,.slicknav_menu,.adroom,#map');
+
     $('#openChat').on('click', function() {
-        $('#chat,.right').toggleClass('slide-in');
+        $animated.toggleClass('slide-in');
     });
+
+    $animated.addClass('animated');
 
     $('#chat').on('mouseover', function(e) {
       mapEventsDisabled = true;

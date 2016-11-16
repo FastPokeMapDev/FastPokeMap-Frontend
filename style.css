@@ -574,9 +574,3 @@ input[type='checkbox']:checked {
 .filteritem label {
     vertical-align: middle;
 }
-#chat.slide-in {
-  transform: translateX(0px);
-}
-.right.slide-in {
-  transform: translateX(-400px);
-}
