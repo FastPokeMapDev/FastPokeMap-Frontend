@@ -653,19 +653,41 @@ $(function() {
     let $animated = $('#chat,.right,.slicknav_menu,.adroom,#map');
 
     $('#openChat').on('click', function() {
+        $('html,body,#map,#chat').toggleClass('no-scroll');
         $animated.toggleClass('slide-in');
     });
 
     $animated.addClass('animated');
 
-    $('#chat').on('mouseover', function(e) {
+    $('#chat').on('mouseover touchstart', function(e) {
       mapEventsDisabled = true;
       map.dragging.disable();
       map.doubleClickZoom.disable();
       map.scrollWheelZoom.disable();
     });
 
-    $('#chat').on('mouseout', function(e) {
+    $(document.body).on('focusin', '.conversation textarea, .conversation input', function(e) {
+      $('#chat').addClass('with-keyboard');
+      document.body.scrollTop = 0;
+      setTimeout(() => {
+        $('.message-area').animate({ scrollTop: $('.message-area')[0].scrollHeight });
+      }, 100);
+
+    });
+    
+    // tag chrome on iOS so we can target specific media query
+    if(/CriOS/i.test(navigator.userAgent) && /iphone|ipod|ipad/i.test(navigator.userAgent)) {
+      $('body').addClass('chrome-ios');
+    }
+    if(/Android/i.test(navigator.userAgent)) {
+      $('body').addClass('chrome-android');
+    }
+
+    $(document.body).on('focusout', "textarea, input", function(e) {
+      $('#chat').removeClass('with-keyboard');
+    });
+
+    $('#chat').on('mouseout touchend', function(e) {
       mapEventsDisabled = false;
       map.dragging.enable();
       map.doubleClickZoom.enable();
