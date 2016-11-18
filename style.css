@@ -249,9 +249,10 @@ noscript a {
     /* height: 190px; */
     width: 60px;
     z-index: 1001;
+    transition: transform 0.3s ease-in-out;
 }
 
-button:not(.searchbutton) {
+button.round:not(.searchbutton) {
     background: #eff7ee none repeat scroll 0 0;
     border: 2px solid #217B86;
     border-radius: 100px;
@@ -268,7 +269,7 @@ button:not(.searchbutton) {
     text-align: left;
 }
 
-button:not(.searchbutton):before {
+button.round:not(.searchbutton):before {
     content: " ";
     display: block;
     background: #eff7ee;
@@ -283,7 +284,7 @@ button:not(.searchbutton):before {
     opacity: 0.6;
 }
 
-button:active, button:active:before {
+button.round:active, button:active:before {
     background: #BAEAAE;
 }
 
@@ -308,7 +309,7 @@ button.notifications img {       /* <----------------- NEW! */
     margin-left: 8px;
 }
 
-button.close, button#applyfilter{
+button.round.close, button#applyfilter{
     margin-top: 15px;
     text-align: center;
     font-size: 17px;
@@ -318,22 +319,22 @@ button.close, button#applyfilter{
     margin-bottom: 0px;
 }
 
-button.close:before, button#applyfilter:before {
+button.round.close:before, button#applyfilter:before {
     width: 40px;
     height: 40px;
 }
 
-button.scan {
+button.round.scan {
     height: 70px;
     width: 70px;
 }
 
-button.scan:before {
+button.round.scan:before {
     height: 80px;
     width: 80px;
 }
 
-button.scan img {
+button.round.scan img {
     width: 32px;
     height: 32px;
     margin-left: 17px;

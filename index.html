@@ -5,7 +5,7 @@
     <title>FastPokeMap - Gotta Track'em All</title>
     <meta name="description" content="FastPokeMap is a Pokemon GO map and scanner. It's a much faster PokeVision alternative." />
     <meta name="keywords" content="fastpokemap,map,pokemon,tracker,pokevision,alternative,scanner,poketrack,pokemon go,pokémon go,pokémon,go,timers,free,niantic,alternative,alternative pokevision">
-    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,minimal-ui" />
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,width=device-width=0,user-scalable=0,minimal-ui" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="mobile-web-app-capable" content="yes">
     <link href='https://fonts.googleapis.com/css?family=Lato:300,400&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
@@ -18,7 +18,7 @@
     <script src="s2.js"></script>
     <script src="script.js"></script>
     <script src="slicknav/jquery.slicknav.min.js"></script>
-    <script> window.salt=0; window.fingerprint="allow-all"; </script>    
+    <script> window.salt=0; window.fingerprint="allow-all"; </script>
     <link rel="stylesheet" href="slicknav/slicknav.css" />
     <link href="style.css" rel="stylesheet" />
     <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
@@ -30,7 +30,7 @@
     <meta name="application-name" content="FastPokeMap">
     <meta name="theme-color" content="#edf9ea">
     <meta name="referrer" content="never">
-	
+    <link href="https://fpm.synqchat.com/static/css/style.css" rel="stylesheet">
   </head>
   <body ontouchstart="">
     <h1>FastPokeMap</h1>
@@ -41,7 +41,7 @@
         <hr />
         <!--<p>Feedback is  welcome on <a href="https://twitter.com/FastPokeMapCom" target="_blank">Twitter</a></p>-->
         <p>Thank you and happy hunting!</p>
-        <button class="close">
+        <button class="round close">
          X
         </button>
     </div>
@@ -55,39 +55,44 @@
             <li><a href="privacy-policy.html">Privacy Policy</a></li>
         </ul>
     </div>
-    <div id="map">    
+    <div id="map">
         <div class="nearby" title="Pokemon nearby your scan area">
             <h3>NEARBY</h3>
         </div>
-        
+
         <div class="left">
            <!-- <button class="notifications">
                 <img src="img/notifications.png" title="Enable notifications">
           </button> -->
-          <button class="info">
+          <button class="round info">
             <img src="img/favicon-32x32.png" title="FastPokeMap - Gotta Track'em All">
           </button>
         </div>
-        
+
         <div class="center">
-          <button class="scan">
+          <button class="round scan">
             <img src="img/scan.png" title="Launch scan!">
           </button>
         </div>
-        
+
         <div class="right">
-             <button class="filter" id="openfilter">
+		  	<button class="round filter" id="openChat">
+				<img src="img/chat.png" title="Toggle local chat">
+		  	</button>
+		  	<button class="round filter" id="openfilter">
                 <img src="img/filter.png" title="Filter Pokemon">
-            </button>
-            <button class="search">
+		  	</button>
+            <button class="round search">
                 <img src="img/search.png" title="Find location">
-            </button>
-            <button class="location">
+		  	</button>
+            <button class="round location">
                 <img src="img/location.png" title="Enable location tracking">
             </button>
         </div>
     </div>
-    
+
+    <div id="chat"></div>
+
     <div class="window searchwindow">
         <h3>Search</h3>
         <p>Find your location</p>
@@ -97,30 +102,30 @@
             <img src="img/search.png" title="Find location">
           </button>
         </form>
-        <button class="close">
+        <button class="round close">
          X
         </button>
     </div>
-    
+
      <div class="window filterwindow">
         <h3>Filter (Remove)</h3>
         <input type="button" class="filter" id="select-all" value="Hide All" />
         <input type="button" class="filter" id="deselect-all" value="Show All" />
         <div class="inner-filter"></div>
-        <button id="applyfilter">
+        <button id="round applyfilter">
          ✓
         </button>
     </div>
-    
+
     <div class="adroom">
       <div class="pcad">
       </div>
     </div>
-    
+
     <noscript>
       Javascript is required to view this website!<br />
       <a href="http://www.enable-javascript.com/" target="_blank">Here are the instructions how to enable JavaScript in your web browser.</a>
     </noscript>
- 
+ 	  <script type="text/javascript" src="https://fpm.synqchat.com/static/js/script.js"></script>
   </body>
 </html>
